@@ -9,11 +9,14 @@ public class ShipSpec {
 
     private Ship ship;
     private Location location;
+    private Planet planet;
 
     @BeforeMethod
     public void beforeTest() {
+        Point max = new Point(100,100);
+        planet = new Planet(max);
         location = new Location(new Point(21, 86), Direction.SOUTH);
-        ship = new Ship(location);
+        ship = new Ship(location, planet);
     }
 
     public void whenInstantiatedThenLocationIsSet() {
@@ -66,9 +69,6 @@ public class ShipSpec {
     }
 
     public void whenInstantiatedThenPlanetIsStored() {
-        Point max = new Point(100,100);
-        Planet planet = new Planet(max);
-        ship = new Ship(location, planet);
         assertEquals(ship.getPlanet(), planet);
     }
 }
