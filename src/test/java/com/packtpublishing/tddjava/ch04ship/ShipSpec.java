@@ -15,7 +15,7 @@ public class ShipSpec {
     public void beforeTest() {
         Point max = new Point(50,50);
         planet = new Planet(max);
-        location = new Location(new Point(21, 86), Direction.SOUTH);
+        location = new Location(new Point(21, 32), Direction.SOUTH);
         ship = new Ship(location, planet);
     }
 
