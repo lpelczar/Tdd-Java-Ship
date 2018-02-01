@@ -31,20 +31,19 @@ public class Ship {
     }
 
     public void receiveCommands(String commands) {
-        char[] commandsArray = commands.toCharArray();
-        for (char command : commandsArray) {
+        for (char command : commands.toCharArray()) {
             switch (command) {
                 case 'f':
-                    location.forward();
+                    moveForward();
                     break;
                 case 'b':
-                    location.backward();
+                    moveBackward();
                     break;
                 case 'l':
-                    location.turnLeft();
+                    turnLeft();
                     break;
                 case 'r':
-                    location.turnRight();
+                    turnRight();
                     break;
             }
         }
