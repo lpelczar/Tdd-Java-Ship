@@ -1,5 +1,7 @@
 package com.packtpublishing.tddjava.ch04ship;
 
+import java.lang.reflect.Array;
+
 public class Ship {
 
     private Location location;
@@ -28,9 +30,23 @@ public class Ship {
         location.turnRight();
     }
 
-    public void receiveCommands(String command) {
-        if (command.equals("f")) {
-            location.forward();
+    public void receiveCommands(String commands) {
+        char[] commandsArray = commands.toCharArray();
+        for (char command : commandsArray) {
+            switch (command) {
+                case 'f':
+                    location.forward();
+                    break;
+                case 'b':
+                    location.backward();
+                    break;
+                case 'l':
+                    location.turnLeft();
+                    break;
+                case 'r':
+                    location.turnRight();
+                    break;
+            }
         }
     }
 }
