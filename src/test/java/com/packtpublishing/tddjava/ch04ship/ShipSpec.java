@@ -20,8 +20,10 @@ public class ShipSpec {
         assertEquals(ship.getLocation(), location);
     }
 
-    public void givenNorthWhenMoveForwardThenYDecreases() {
+    public void whenMoveForwardThenForward() {
+        Location expected = location.copy();
+        expected.forward();
         ship.moveForward();
-        assertEquals(ship.getLocation().getPoint().getY(), 85);
+        assertEquals(ship.getLocation(), expected);
     }
 }
