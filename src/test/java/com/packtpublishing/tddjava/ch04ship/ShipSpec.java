@@ -26,4 +26,11 @@ public class ShipSpec {
         ship.moveForward();
         assertEquals(ship.getLocation(), expected);
     }
+
+    public void whenMoveBackwardThenBackward() {
+        Location expected = location.copy();
+        expected.backward();
+        ship.moveBackward();
+        assertEquals(ship.getLocation(), expected);
+    }
 }
