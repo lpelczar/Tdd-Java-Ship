@@ -72,10 +72,17 @@ public class ShipSpec {
         assertEquals(ship.getPlanet(), planet);
     }
 
-    public void overpassEastBoundary() {
+    public void givenDirectionEAndXEqualsMaxXWhenReceiveCommandsFThenWrap() {
         location.setDirection(Direction.EAST);
         location.getPoint().setX(planet.getMax().getX());
         ship.receiveCommands("f");
         assertEquals(location.getX(), 1);
+    }
+
+    public void givenDirectionEAndXEquals1WhenReceiveCommandsBThenWrap() {
+        location.setDirection(Direction.EAST);
+        location.getPoint().setX(1);
+        ship.receiveCommands("b");
+        assertEquals(location.getX(), planet.getMax().getX());
     }
 }
