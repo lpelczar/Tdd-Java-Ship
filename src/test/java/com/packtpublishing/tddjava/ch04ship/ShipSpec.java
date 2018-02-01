@@ -2,6 +2,9 @@ package com.packtpublishing.tddjava.ch04ship;
 
 import org.testng.annotations.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.testng.Assert.*;
 
 @Test
@@ -84,5 +87,17 @@ public class ShipSpec {
         location.getPoint().setX(1);
         ship.receiveCommands("b");
         assertEquals(location.getX(), planet.getMax().getX());
+    }
+
+    public void whenReceiveCommandsThenStopOnObstacle() {
+        List<Point> obstacles = new ArrayList<>();
+        obstacles.add(new Point(location.getX() + 1, location.getY()));
+        ship.getPlanet().setObstacles(obstacles);
+        Location expected = location.copy();
+        expected.turnRight();
+        expected.turnLeft();
+        expected.backward(new Point(0, 0), new ArrayList<>());
+        ship.receiveCommands("rflb");
+        assertEquals(ship.getLocation(), expected);
     }
 }
