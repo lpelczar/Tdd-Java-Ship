@@ -19,4 +19,9 @@ public class ShipSpec {
     public void whenInstantiatedThenLocationIsSet() {
         assertEquals(ship.getLocation(), location);
     }
+
+    public void givenNorthWhenMoveForwardThenYDecreases() {
+        ship.moveForward();
+        assertEquals(ship.getLocation().getPoint().getY(), 85);
+    }
 }
