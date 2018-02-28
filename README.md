@@ -20,7 +20,7 @@ Req. 06: Not the whole planet consists of seas. Roughly 30% is surface are islan
 
 ## Used
 
-![TestNG](http://testng.org/doc/)
+* [TestNG](http://testng.org/doc/)
 
 ## More info
 
